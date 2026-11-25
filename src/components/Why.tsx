@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
+import SwipeArrows from "@/components/SwipeArrows";
 import { BookButton, CallButton } from "@/components/CTAButtons";
 import {
   ChartIcon,
@@ -106,7 +107,7 @@ export default function Why() {
             <p className="eyebrow">Our clinicians</p>
             <h3>Experienced clinicians. Compassionate care.</h3>
           </Reveal>
-          <ul className="team-grid">
+          <ul id="team-row" className="team-grid">
             {TEAM.slice(1).map((person, index) => (
               <li key={person.name}>
                 <Reveal delay={((index % 4) + 1) as 1 | 2 | 3 | 4} className="team-card">
@@ -128,6 +129,7 @@ export default function Why() {
               </li>
             ))}
           </ul>
+          <SwipeArrows targetId="team-row" label="clinician" />
         </div>
       </div>
     </section>

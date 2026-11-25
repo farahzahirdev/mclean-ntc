@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import ReviewText from "@/components/ReviewText";
 import SwipeArrows from "@/components/SwipeArrows";
 import { ArrowIcon, StarIcon } from "@/components/Icons";
 import { BookButton } from "@/components/CTAButtons";
@@ -83,7 +84,7 @@ export default function Reviews() {
               <Stars />
               <blockquote>
                 <p className="rv-pull">{FEATURED_LINE}</p>
-                <p>{featured.text}</p>
+                <ReviewText text={featured.text} />
               </blockquote>
               <Author name={featured.name} date={featured.date} />
             </Reveal>

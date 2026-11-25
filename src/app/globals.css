@@ -6943,3 +6943,81 @@ h2 em {
     display: inline;
   }
 }
+
+/* ---------- Featured review: "Read more" on phones, where the text is cut short ---------- */
+
+.rv-more {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .rv-text:not(.is-open) {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+
+  .rv-more {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 0;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    background: none;
+    color: var(--gold-light);
+    font: inherit;
+    font-size: var(--fs-small);
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+/* phones: cards share one height when closed; opening "Read more" grows only that card */
+
+@media (max-width: 620px) {
+  .rv-cards {
+    align-items: flex-start;
+  }
+
+  .rv-cards > .rv-card,
+  .rv-cards > .rv-featured {
+    height: 430px;
+    min-height: 0;
+  }
+
+  .rv-cards > .rv-featured:has(.rv-text.is-open) {
+    height: auto;
+  }
+}
+
+/* ---------- Clinicians on phones: one swipeable row, one card at a time ---------- */
+
+@media (max-width: 640px) {
+  .team-grid {
+    display: flex;
+    grid-template-columns: none;
+    gap: 12px;
+    margin-inline: -20px;
+    padding: 4px 20px 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .team-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .team-grid > li {
+    flex: 0 0 72%;
+    scroll-snap-align: start;
+  }
+
+  .team-grid .team-card {
+    height: 100%;
+  }
+}
