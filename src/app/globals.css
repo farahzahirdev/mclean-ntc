@@ -6913,3 +6913,33 @@ h2 em {
     display: none;
   }
 }
+
+/* ---------- Hero tagline on narrow phones: one line with the dot (state shortened to VA) ---------- */
+
+.hx-state-short {
+  display: none;
+}
+
+@media (max-width: 400px) {
+  .hx-tagline {
+    flex-direction: row;
+    gap: 6px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    line-height: 1.65;
+  }
+
+  .hx-tagline-dot,
+  .hx-tagline-sep {
+    display: inline-block;
+  }
+
+  .hx-state-full {
+    display: none;
+  }
+
+  .hx-state-short {
+    display: inline;
+  }
+}

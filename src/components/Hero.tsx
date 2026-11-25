@@ -122,7 +122,10 @@ export default function Hero() {
             <span className="hx-tagline-sep" aria-hidden="true">
               ·
             </span>
-            <span>McLean, Virginia</span>
+            <span>
+              McLean, <span className="hx-state-full">Virginia</span>
+              <span className="hx-state-short">VA</span>
+            </span>
           </p>
 
           <h1 id="hero-heading">
