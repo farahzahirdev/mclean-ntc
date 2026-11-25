@@ -6884,3 +6884,32 @@ h2 em {
   font-weight: 700;
   line-height: 1.5;
 }
+
+/* ---------- Hero tagline on phones: keep it on one line; if it still can't fit, stack cleanly ---------- */
+
+.hx-tagline > span:not(.hx-tagline-dot) {
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .hx-tagline {
+    gap: 7px;
+    padding: 7px 14px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hx-tagline {
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 18px;
+    border-radius: 18px;
+    line-height: 1.4;
+  }
+
+  .hx-tagline-dot,
+  .hx-tagline-sep {
+    display: none;
+  }
+}

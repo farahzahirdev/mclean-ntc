@@ -118,7 +118,11 @@ export default function Hero() {
         <div className="hx-copy">
           <p className="hx-tagline">
             <span className="hx-tagline-dot" />
-            Offering hope for depression · McLean, Virginia
+            <span>Offering hope for depression</span>
+            <span className="hx-tagline-sep" aria-hidden="true">
+              ·
+            </span>
+            <span>McLean, Virginia</span>
           </p>
 
           <h1 id="hero-heading">
