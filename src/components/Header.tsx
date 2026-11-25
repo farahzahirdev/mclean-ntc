@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ArrowIcon, MenuIcon, PhoneIcon, XIcon } from "@/components/Icons";
+import { ArrowIcon, ChevronIcon, MenuIcon, PhoneIcon, XIcon } from "@/components/Icons";
 import {
   BOOK_HREF,
   FORM_SECTION_ID,
@@ -10,8 +10,12 @@ import {
   NAV_LINKS,
   PHONE_HREF,
   PHONE_NUMBER,
+  SERVICES,
+  SERVICES_SECTION_ID,
   SITE_NAME,
 } from "@/lib/constants";
+
+const TREATMENTS_HREF = `#${SERVICES_SECTION_ID}`;
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,11 +61,28 @@ export default function Header() {
           </a>
 
           <nav className="header-nav" aria-label="Page sections">
-            {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.href === TREATMENTS_HREF ? (
+                <div key={link.href} className="nav-drop">
+                  <a href={link.href} aria-haspopup="true">
+                    {link.label}
+                    <ChevronIcon className="nav-drop-chevron" />
+                  </a>
+                  <div className="nav-drop-panel">
+                    {SERVICES.map((service) => (
+                      <a key={service.id} href={`#${service.id}`}>
+                        <strong>{service.title}</strong>
+                        <span>{service.fullName}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a key={link.href} href={link.href}>
+                  {link.label}
+                </a>
+              ),
+            )}
           </nav>
 
           <div className="header-actions">
@@ -92,9 +113,20 @@ export default function Header() {
         <div id="mobile-menu" className="mobile-menu" hidden={!open}>
           <nav aria-label="Page sections">
             {NAV_LINKS.map((link) => (
-              <a key={link.href} href={link.href} onClick={close}>
-                {link.label}
-              </a>
+              <div key={link.href} className="mobile-nav-item">
+                <a href={link.href} onClick={close}>
+                  {link.label}
+                </a>
+                {link.href === TREATMENTS_HREF ? (
+                  <div className="mobile-subnav">
+                    {SERVICES.map((service) => (
+                      <a key={service.id} href={`#${service.id}`} onClick={close}>
+                        {service.title}
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
             ))}
           </nav>
           <div className="mobile-menu-actions">

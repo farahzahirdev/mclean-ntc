@@ -1,4 +1,5 @@
 import Reveal from "@/components/Reveal";
+import SwipeArrows from "@/components/SwipeArrows";
 import TreatmentRows from "@/components/TreatmentRows";
 import { GLANCE_ROWS, SERVICES_SECTION_ID } from "@/lib/constants";
 
@@ -33,7 +34,7 @@ export default function Services() {
                   <th scope="col">Cost</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="glance-row">
                 {GLANCE_ROWS.map((row) => (
                   <tr key={row.name}>
                     <th scope="row">{row.name}</th>
@@ -48,6 +49,7 @@ export default function Services() {
               </tbody>
             </table>
           </div>
+          <SwipeArrows targetId="glance-row" label="treatment" />
           <p className="glance-note">
             Off-label means the medicine is FDA-approved for another use and
             prescribed for depression at a clinician&rsquo;s judgment. Whether

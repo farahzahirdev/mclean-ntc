@@ -6201,3 +6201,686 @@ h2 em {
   will-change: transform;
   backface-visibility: hidden;
 }
+
+/* ---------- Review cards ---------- */
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.4s var(--ease),
+    border-color 0.25s;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+}
+
+.review-card blockquote {
+  flex: 1;
+  font-size: var(--fs-small);
+  line-height: 1.65;
+}
+
+.review-name {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+/* ---------- Reviews: intro on the left, featured quote + two cards on the right ---------- */
+
+.rv-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: start;
+  gap: clamp(32px, 5vw, 76px);
+}
+
+.rv-intro {
+  position: sticky;
+  top: calc(var(--header-h) + 40px);
+}
+
+.rv-intro .lead {
+  margin-top: 16px;
+}
+
+.rv-google {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block: 28px 18px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--white);
+  color: var(--navy);
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.35s var(--ease),
+    border-color 0.25s;
+}
+
+.rv-google:hover {
+  transform: translateY(-3px);
+  border-color: var(--blue);
+}
+
+.rv-google .google-g {
+  width: 38px;
+  height: 38px;
+  flex: none;
+}
+
+.rv-google > span {
+  display: grid;
+  gap: 4px;
+  flex: 1;
+}
+
+.rv-google strong {
+  font-size: var(--fs-body);
+}
+
+.rv .stars {
+  display: inline-flex;
+  gap: 2px;
+  color: #f5a623;
+}
+
+.rv-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rv-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: clamp(22px, 2.4vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  transition:
+    transform 0.4s var(--ease),
+    border-color 0.25s;
+}
+
+.rv-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+}
+
+.rv-card blockquote {
+  flex: 1;
+  margin: 14px 0 22px;
+  color: var(--slate);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+
+.rv-featured {
+  position: relative;
+  grid-column: 1 / -1;
+  overflow: hidden;
+  padding: clamp(26px, 3.4vw, 46px);
+  border: 0;
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-900) 100%);
+  color: var(--white);
+  box-shadow: 0 40px 80px -46px rgba(9, 30, 50, 0.9);
+}
+
+.rv-quote-mark {
+  position: absolute;
+  top: -34px;
+  right: 22px;
+  color: rgba(143, 203, 245, 0.18);
+  font-family: var(--font-display);
+  font-size: 15rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.rv-featured blockquote {
+  position: relative;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.rv-pull {
+  margin-bottom: 16px;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+}
+
+.rv-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rv-avatar {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--blue-pale);
+  color: var(--blue-deep);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.rv-featured .rv-avatar {
+  background: var(--gold-light);
+  color: var(--navy-900);
+}
+
+.rv-author > span:nth-child(2) {
+  display: grid;
+  flex: 1;
+  line-height: 1.35;
+}
+
+.rv-author strong {
+  font-size: var(--fs-body);
+}
+
+.rv-author em {
+  color: var(--muted);
+  font-size: var(--fs-caption);
+  font-style: normal;
+}
+
+.rv-featured .rv-author em {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.rv-author .google-g {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+.rv-featured .rv-author .google-g {
+  padding: 5px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+}
+
+@media (max-width: 960px) {
+  .rv-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rv-intro {
+    position: static;
+    text-align: center;
+  }
+
+  .rv-intro .eyebrow {
+    justify-content: center;
+  }
+
+  .rv-intro .lead {
+    margin-inline: auto;
+  }
+
+  .rv-google {
+    max-width: 420px;
+    margin-inline: auto;
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  .rv-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .rv-card {
+    border-radius: 22px;
+  }
+
+  .rv-intro .btn {
+    width: 100%;
+  }
+}
+
+/* ---------- Reviews on phones: one swipeable row, next card peeking in ---------- */
+
+@media (max-width: 620px) {
+  .rv-cards {
+    display: flex;
+    gap: 12px;
+    margin-inline: -20px;
+    padding: 4px 20px 26px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .rv-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rv-cards > * {
+    flex: 0 0 86%;
+    scroll-snap-align: start;
+  }
+
+  .rv-card,
+  .rv-featured {
+    height: 100%;
+    padding: 22px;
+  }
+
+  .rv-card:hover {
+    transform: none;
+  }
+
+  .rv-pull {
+    font-size: 1.45rem;
+  }
+
+  .rv-quote-mark {
+    font-size: 10rem;
+    top: -22px;
+    right: 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ins-cover-list li > div {
+    flex: 1 1 calc(100% - 52px);
+  }
+
+  .ins-chip {
+    margin-top: -4px;
+  }
+}
+
+/* phones: every review card the same height; long reviews are cut off with an ellipsis */
+
+@media (max-width: 620px) {
+  .rv-cards {
+    align-items: stretch;
+  }
+
+  .rv-cards > .rv-card,
+  .rv-cards > .rv-featured {
+    height: auto;
+    min-height: 340px;
+  }
+
+  .rv-card blockquote > p:last-child {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+  }
+
+  .rv-featured blockquote > p:last-child {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+  }
+}
+
+/* ---------- Header: Treatments dropdown ---------- */
+
+.nav-drop {
+  position: relative;
+}
+
+.nav-drop > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-drop-chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s var(--ease);
+}
+
+.nav-drop:hover .nav-drop-chevron,
+.nav-drop:focus-within .nav-drop-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-drop-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 5;
+  display: grid;
+  gap: 2px;
+  width: 280px;
+  margin-top: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--white);
+  box-shadow: 0 30px 60px -28px rgba(9, 30, 50, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 0.22s,
+    transform 0.25s var(--ease),
+    visibility 0.22s;
+}
+
+/* invisible bridge so the pointer can cross from the link to the panel */
+.nav-drop-panel::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 14px;
+}
+
+.nav-drop:hover .nav-drop-panel,
+.nav-drop:focus-within .nav-drop-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(12px);
+}
+
+.header-nav .nav-drop-panel a {
+  display: grid;
+  gap: 1px;
+  padding: 10px 14px;
+  border-radius: 14px;
+}
+
+.nav-drop-panel strong {
+  color: var(--navy);
+  font-size: var(--fs-body);
+  font-weight: 700;
+}
+
+.nav-drop-panel span {
+  color: var(--muted);
+  font-size: var(--fs-caption);
+  font-weight: 500;
+}
+
+.mobile-nav-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.mobile-menu nav .mobile-nav-item > a {
+  display: block;
+  border-bottom: 0;
+}
+
+.mobile-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 10px 14px;
+}
+
+.mobile-menu nav .mobile-subnav a {
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--mist);
+  color: var(--blue-deep);
+  font-size: var(--fs-small);
+}
+
+.tx-stage {
+  scroll-margin-top: calc(var(--header-h) + 28px);
+}
+
+/* ---------- Reviews: arrows under the swipe row (phones only) ---------- */
+
+.rv-arrows {
+  display: none;
+}
+
+@media (max-width: 620px) {
+  .rv-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: -6px;
+  }
+
+  .rv-arrows button {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--navy);
+    box-shadow: var(--shadow-soft);
+    cursor: pointer;
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      opacity 0.2s;
+  }
+
+  .rv-arrows button:not(:disabled):active {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .rv-arrows button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .rv-arrow-back {
+    transform: rotate(180deg);
+  }
+}
+
+/* ---------- Reviews arrows: a clear control bar under the cards (phones) ---------- */
+
+@media (max-width: 620px) {
+  .rv-cards {
+    padding-bottom: 18px;
+  }
+
+  .rv-arrows {
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 0;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--mist);
+  }
+
+  .rv-arrows button {
+    width: 46px;
+    height: 46px;
+    border: 0;
+    background: var(--navy);
+    color: var(--white);
+    box-shadow: none;
+  }
+
+  .rv-arrows button:disabled {
+    background: var(--white);
+    color: var(--muted);
+    opacity: 1;
+  }
+
+  .rv-count {
+    color: var(--navy);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* ---------- At a glance on phones: one swipeable row of treatment cards ---------- */
+
+@media (max-width: 640px) {
+  .glance-table tbody {
+    display: flex;
+    gap: 12px;
+    margin-inline: calc(-1 * clamp(24px, 4vw, 48px));
+    padding: 2px clamp(24px, 4vw, 48px) 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: clamp(24px, 4vw, 48px);
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .glance-table tbody::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glance-table tbody tr {
+    flex: 0 0 78%;
+    scroll-snap-align: start;
+    background: var(--mist);
+  }
+
+  .glance-table .glance-note::before {
+    content: "Swipe to compare all four. ";
+    color: var(--navy);
+    font-weight: 700;
+  }
+}
+
+/* ---------- Swipe arrows: a small centred pair under a swipe row (phones only) ---------- */
+
+.swipe-arrows {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .swipe-arrows {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .swipe-arrows button {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--white);
+    cursor: pointer;
+    transition:
+      background-color 0.2s,
+      color 0.2s;
+  }
+
+  .swipe-arrows button:disabled {
+    background: var(--blue-pale);
+    color: var(--muted);
+    cursor: default;
+  }
+
+  .swipe-arrow-back {
+    transform: rotate(180deg);
+  }
+
+  .glance-table .swipe-arrows {
+    margin-bottom: 18px;
+  }
+
+  .glance-table .glance-note::before {
+    content: none;
+  }
+}
+
+/* ---------- Trust bar: centre each item in its cell ---------- */
+
+.hx-trust li {
+  justify-content: center;
+}
+
+/* ---------- Trust bar: icon and text centred vertically (left-aligned across) ---------- */
+
+.hx-trust li {
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* ---------- Reviews: one tinted block, so the swipe arrows clearly belong to it ---------- */
+
+.rv {
+  background: var(--mist);
+}
+
+@media (max-width: 640px) {
+  .rv .swipe-arrows {
+    margin-top: 6px;
+  }
+
+  .rv {
+    padding-bottom: 56px;
+  }
+}
+
+/* ---------- Mobile header: smaller call circle ---------- */
+
+@media (max-width: 720px) {
+  .header-phone {
+    width: 36px;
+    height: 36px;
+  }
+
+  .header-phone svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* phones: the swipe row clips card shadows into a hard band, so the cards go flat there */
+
+@media (max-width: 620px) {
+  .rv-cards > .rv-card,
+  .rv-cards > .rv-featured {
+    box-shadow: none;
+  }
+
+  .rv-cards {
+    padding-bottom: 14px;
+  }
+}
+
+/* Visit: the phone number matches the address and hours text */
+
+.visit-phone {
+  color: var(--navy);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  line-height: 1.5;
+}

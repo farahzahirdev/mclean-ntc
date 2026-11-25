@@ -133,7 +133,7 @@ export default function TreatmentRows() {
             key={service.id}
             className={`tx-row${index % 2 ? " tx-row-flip" : ""}`}
           >
-            <div className="tx-stage">
+            <div id={service.id} className="tx-stage">
               <p className="tx-stage-title">{visual.title}</p>
               {visual.scene ? (
                 <AtlasStage
@@ -172,7 +172,7 @@ export default function TreatmentRows() {
               )}
             </div>
 
-            <div id={service.id} className="tx-copy">
+            <div className="tx-copy">
               <span className="explorer-badge">{service.badge}</span>
               <p className="eyebrow">{service.eyebrow}</p>
               <div className="tx-heading">

@@ -421,11 +421,28 @@ export const COVERAGE = [
 ] as const;
 
 /**
- * Google reviews. Left empty on purpose: mcleanntc.com shows no review text,
- * and we do not invent quotes. Paste real reviews here (with the reviewer's
- * permission) and the section shows them as cards automatically.
+ * Real Google reviews of the clinic, quoted word for word (the first is the opening
+ * paragraph of a longer review). Text was taken from a public listing that mirrors
+ * the clinic's Google reviews (regenerated.com, synced May 2026): check each one
+ * against the Google profile before launch. Never add invented quotes here.
  */
-export const REVIEWS: readonly { name: string; text: string }[] = [];
+export const REVIEWS: readonly { name: string; date: string; text: string }[] = [
+  {
+    name: "Kevin G.",
+    date: "January 2026",
+    text: "Very thorough and individual approach. I’ve battled depression for my entire life with no help from meds or therapy. After my 36 sessions I can confidently say I have noticed very positive changes. I am more confident, more motivation, more personality, less dark thoughts, more just normal. This program has finally given me hope for a fulfilling life. The staff were all amazing, very caring and helpful. I drove 45 mins one way 5 days a week to get here on a recommendation. And it was definitely worth it and I would absolutely recommend them to anyone suffering.",
+  },
+  {
+    name: "Lav K.",
+    date: "January 2026",
+    text: "I cannot say enough good things about the care and professionalism of this practice. From the moment you walk in, it’s clear that this is a place built around attentiveness, listening, and respect for the individual, not just the diagnosis.",
+  },
+  {
+    name: "Suzie H.",
+    date: "February 2026",
+    text: "I am extremely thankful for Dr. Haq, and the entire team at McLean Neuropsychiatric Clinic. I feel truly fortunate to have the opportunity to work with such knowledgeable, compassionate, and dedicated professionals in my journey toward healing. Their support has been life-changing.",
+  },
+];
 
 export const FAQS = [
   {
